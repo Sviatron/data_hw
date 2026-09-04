@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+
+  background: #111;
+  color: white;
+}
+
+/* Main countdown */
+.output {
+  position: relative;
+
+  padding: 35px 55px;
+
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-align: center;
+
+  color: #fff;
+
+  background: linear-gradient(145deg, #242424, #111);
+  border: 2px solid #d4af37;
+  border-radius: 16px;
+
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35),
+    inset 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+/* "LIMITED EDITION" label */
+.output::before {
+  content: "LIMITED EDITION";
+
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 7px 18px;
+
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+
+  color: #111;
+  background: #d4af37;
+
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Small text underneath */
+.output::after {
+  content: "AVAILABLE FOR A LIMITED TIME";
+
+  position: absolute;
+  bottom: -32px;
+  left: 0;
+  width: 100%;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+
+  color: #aaa;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .output {
+    padding: 28px 25px;
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .output::before {
+    font-size: 11px;
+  }
+}
