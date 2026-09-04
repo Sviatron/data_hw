@@ -1,4 +1,4 @@
-const output = document.querySelector(".output");
+const allTimes = document.querySelectorAll(".value");
 
 let startTime = null;
 let timerId = null;
@@ -20,14 +20,15 @@ function updateTimer() {
 
 function renderTime(ms) {
   const totalSeconds = Math.floor(ms / 1000);
-  const h = Math.floor(totalSeconds / 3600);
+  const d = Math.floor(totalSeconds / (60 * 60 * 24));
+  const h = Math.floor((totalSeconds % 86400) / (60 * 60));
   const m = Math.floor((totalSeconds % 3600) / 60);
   const s = Math.floor(totalSeconds % 60);
 
-  output.textContent = `${String(h).padStart(2, "0")} : ${String(m).padStart(
-    2,
-    "0"
-  )} : ${String(s).padStart(2, "0")}`;
+  allTimes[0].textContent = `${String(d).padStart(2, "0")}`;
+  allTimes[1].textContent = `${String(h).padStart(2, "0")}`;
+  allTimes[2].textContent = `${String(m).padStart(2, "0")}`;
+  allTimes[3].textContent = `${String(s).padStart(2, "0")}`;
 }
 
 startTimer();
